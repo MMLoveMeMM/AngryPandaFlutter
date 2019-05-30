@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /**
  * @Author: 刘志保
  * @CreateDate: 2019/5/29 10:43
- * @Description: 状态模式
+ * @Description: 非状态模式,借助外部事件更新
  */
 
 class StalessSubLabel extends StatelessWidget{
@@ -48,6 +48,7 @@ class _StalessLabel extends State<StalessLabel>{
 
   _handleChanged(bool act){
     setState(() {
+      // 刷新UI变更
       _active = act;
     });
   }

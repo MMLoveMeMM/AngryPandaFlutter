@@ -1,3 +1,16 @@
 StatelessWidget和StatefulWidget是flutter的基础组件，日常开发中自定义Widget都是选择继承这两者之一。
-两者的区别在于状态的改变，StatelessWidget面向那些始终不变的UI控件，比如标题栏中的标题；而StatefulWidget则是面向可能会改变UI状态的控件，比如有点击反馈的按钮。
-StatelessWidget就没什么好研究的了，StatefulWidget的创建需要指定一个State，在需要更新UI的时候调用setState(VoidCallback fn)，并在VoidCallback中改变一些变量数值等，组件会重新build以达到刷新状态也就是刷新UI的效果
+两者的区别在于状态的改变，StatelessWidget面向那些始终不变的UI控件(一般没有触控能力)，比如标题栏中的标题；而StatefulWidget则是面向可能会改变UI状态的控件，比如有点击反馈的按钮。
+StatelessWidget就没什么好研究的了，StatefulWidget的创建需要指定一个State，在需要更新UI的时候调用setState(VoidCallback fn)，并在VoidCallback中改变一些变量数值等，
+组件会重新build以达到刷新状态也就是刷新UI的效果
+在Flutter中，我们平时自定义的widget，一般都是继承自StatefulWidget或StatelessWidget（并不是只有这两种），
+这两种widget也是目前最常用的两种。如果一个控件自身状态不会去改变，创建了就直接显示，不会有色值、大小或者其他属性的变化，
+这种widget一般都是继承自StatelessWidget，常见的有Container、ScrollView等。如果一个控件需要动态的去改变或者相应一些状态，
+例如点击态、色值、内容区域等，那么一般都是继承自StatefulWidget，常见的有CheckBox、AppBar、TabBar等。
+其实单纯的从名字也可以看出这两种widget的区别，这两种widget都是继承自Widget类。
+
+State的生命周期有四种状态：
+
+    created：当State对象被创建时候，State.initState方法会被调用；
+    initialized：当State对象被创建，但还没有准备构建时，State.didChangeDependencies在这个时候会被调用；
+    ready：State对象已经准备好了构建，State.dispose没有被调用的时候；
+    defunct：State.dispose被调用后，State对象不能够被构建。
