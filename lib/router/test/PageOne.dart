@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'PageTwo.dart';
-import '../fluro/app_route.dart';
-import '../fluro/fluro.dart';
-
+import 'package:angrypandaflutter/third/fluro/app_route.dart';
+import 'package:angrypandaflutter/third/fluro/src/common.dart';
 class PageOneWidget extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {

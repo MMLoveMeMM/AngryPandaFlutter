@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../fluro/app_route.dart';
-
+import 'package:angrypandaflutter/third/fluro/app_route.dart';
+import 'package:angrypandaflutter/third/fluro/src/common.dart';
 class PageTwoWidget extends StatefulWidget{
 
   final String _result;
@@ -25,7 +25,8 @@ class PageTwo extends State<PageTwoWidget>{
       body: new Center(
           child: new RaisedButton(onPressed: (){
             // Navigator.pop(context);
-            router.pop(context);
+            // router.pop(context);
+            router.navigateTo(context, 'route/share/');
           },
             child: new Text("返回"+widget._result),)
       ),
@@ -33,3 +34,4 @@ class PageTwo extends State<PageTwoWidget>{
   }
 
 }
+

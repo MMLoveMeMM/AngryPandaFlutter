@@ -1,9 +1,13 @@
+import 'package:angrypandaflutter/databases/test/sql.dart';
 import 'package:angrypandaflutter/router/test/PageOne.dart';
 import 'package:angrypandaflutter/state/StafulWidget.dart';
 import 'package:angrypandaflutter/state/StalessLabel.dart';
+import 'package:angrypandaflutter/third/fluro/app_route.dart';
+import 'package:angrypandaflutter/third/fluro/src/common.dart';
 import 'package:flutter/material.dart';
 
 import 'component/images/ImageComponent.dart';
+import 'databases/test/PageSharePreference.dart';
 import 'layout/CardLayout.dart';
 import 'layout/CenterLayout.dart';
 import 'layout/ColumnLayout.dart';
@@ -11,13 +15,20 @@ import 'layout/GridLayout.dart';
 import 'layout/ListLayout.dart';
 import 'layout/RowLayout.dart';
 import 'layout/StackLayout.dart';
-import 'router/fluro/app_route.dart';
-import 'router/fluro/fluro.dart';
+
 import 'router/test/PageTwo.dart';
-void main() {
+
+Future main() async {
+  final provider = new Provider();
+  // await provider.createdb();
+
   router.define('route/test/:data', handler: new Handler(
       handlerFunc: (BuildContext context, Map<String, dynamic> params) {
         return new PageTwoWidget(params['data'][0]);
+      }));
+  router.define('route/share/', handler: new Handler(
+      handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+        return new PageShareWidget();
       }));
   runApp(MyApp());
 }
