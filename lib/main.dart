@@ -1,7 +1,9 @@
+import 'package:angrypandaflutter/router/test/PageOne.dart';
 import 'package:angrypandaflutter/state/StafulWidget.dart';
 import 'package:angrypandaflutter/state/StalessLabel.dart';
 import 'package:flutter/material.dart';
 
+import 'component/images/ImageComponent.dart';
 import 'layout/CardLayout.dart';
 import 'layout/CenterLayout.dart';
 import 'layout/ColumnLayout.dart';
@@ -9,8 +11,16 @@ import 'layout/GridLayout.dart';
 import 'layout/ListLayout.dart';
 import 'layout/RowLayout.dart';
 import 'layout/StackLayout.dart';
-
-void main() => runApp(MyApp());
+import 'router/fluro/app_route.dart';
+import 'router/fluro/fluro.dart';
+import 'router/test/PageTwo.dart';
+void main() {
+  router.define('route/test/:data', handler: new Handler(
+      handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+        return new PageTwoWidget(params['data'][0]);
+      }));
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -81,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: CardWidget(),//StackWidget(),//ListWidget(),
+      body: PageOneWidget(),//ImageWidget(),//CardWidget(),//StackWidget(),//ListWidget(),
       // GridWidget(),
       /*Center(
         child: Column(

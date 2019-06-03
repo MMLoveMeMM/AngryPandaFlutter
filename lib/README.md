@@ -1,0 +1,13 @@
+Flutter 主要用于开发移动或者WEB的UI界面,那么页面在Flutter里面是什么?
+个人的理解是这样的:
+页面和UI基础组件或者混合组件
+StatelessWidget/StatefulWidget : 它们每一个具体的对象就是一个页面,也相当于一个Activity/Fragment;
+StatelessWidget/StatefulWidget : 它们每一个具体的对象就是一个组件,这个组件可能是一个很小单元的组件,也可能是混合复杂的组件;
+
+简而言之:
+开发页面,开发基础组件,开发自定义组件,开发混合复杂的组件,都是进行StatelessWidget/StatefulWidget开发.
+所以在Flutter页面和UI组件是没有严格的区分,即没有Android里面的Activity/Fragment和Button的区分,
+也没有Android 布局的xml文件类似的操作,Flutter修改了UI以后它会立即reload到设备或者模拟器上面,基本上达到
+了实时更新的目的.
+
+但是,页面一般使用StatelessWidget开发较多,而UI等StatelessWidget/StatefulWidget两个都可以.
